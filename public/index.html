@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Appiness</title>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <link rel="icon" type="image/png" sizes="32x32" href="/appiness-logo-small.png">
+ <!--<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">-->
+ <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
+ <!-- <script type="text/javascript" src="https://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
+<script type="text/javascript" src="https://static.fusioncharts.com/code/latest/themes/fusioncharts.theme.fint.js?cacheBust=56"></script> -->
+<script src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script> 
+<script src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="https://unpkg.com/react-select@1.2.1/dist/react-select.css"> -->
+<!-- <link rel="stylesheet" href="styles.css" /> -->
+<!-- <script src="https://d3js.org/d3-collection.v1.min.js"></script>
+ <script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://d3js.org/d3-selection.v1.js"></script> -->
+
+<!-- <script async src=" https://www.googletagmanager.com/gtag/js?id=UA-41912238-3"></script> 
+<script> 
+window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} 
+gtag('js', new Date()); 
+gtag('config', 'UA-41912238-3'); 
+gtag('event', 'dbhomepage');                                               
+</script>
+<script>window.module = 'aot';</script>
+<script>
+  var rep = /.*\?.*/,
+      links = document.getElementsByTagName('link'),
+      scripts = document.getElementsByTagName('script'),
+      process_scripts = false;
+   for (var i=0;i<links.length;i++){
+    var link = links[i],
+        href = link.href;
+    if(rep.test(href)){
+      link.href = href+'&'+Date.now();
+    }
+    else{
+      link.href = href+'?'+Date.now();
+    }
+
+  }
+ 
+  for (var i=0;i<scripts.length;i++){
+      var script = scripts[i],
+          src = script.src;
+      if(rep.test(src)){
+        script.src = src+'&'+Date.now();
+      }
+      else{
+        script.src = src+'?'+Date.now();
+      }
+
+    }
+ 
+
+</script> -->
+ 
+   <style type="text/css">
+   .logo{
+     left: 50%;
+     margin-left: 55em;
+   }
+  
+   .loader {
+         left: 50%;
+         top: 50%;        
+         position: absolute;
+        border: 4px solid #FF6803 ;
+        border-radius: 50%;
+        border-top: 5px solid #f3f3f3;
+        width: 50px !important;
+        height: 50px !important;
+        -webkit-animation: spin 2s linear infinite;  
+        animation: spin 2s linear infinite;
+        cursor: not-allowed;
+      }
+
+      /* Safari */
+      @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      }
+      body {
+      font-family: 'Roboto', sans-serif;
+      font-size: 13px;
+      -webkit-font-smoothing: antialiased;
+      }
+      .ipl-progress-indicator.available {
+      opacity: 0;
+      }
+      .ipl-progress-indicator {
+      background-color: #f3f3f3;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      opacity: 1;
+      background: '#00000';
+      pointer-events: none;
+      -webkit-transition: opacity cubic-bezier(.4, 0, .2, 1) 436ms;
+      -moz-transition: opacity cubic-bezier(.4, 0, .2, 1) 436ms;
+      transition: opacity cubic-bezier(.4, 0, .2, 1) 436ms;
+      z-index: 9999;
+      }
+      .insp-logo-frame {
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      -moz-flex-direction: column;
+      flex-direction: column;
+      -webkit-justify-content: center;
+      -moz-justify-content: center;
+      justify-content: center;
+      -webkit-animation: fadein 436ms;
+      -moz-animation: fadein 436ms;
+      animation: fadein 436ms;
+      height: 98%;
+      }
+      .insp-logo-frame-img{
+      width: 112px;
+      height: 112px;
+      -webkit-align-self: center;
+      -moz-align-self: center;
+      align-self: center;
+      border-radius: 50%;
+      }
+      .ipl-progress-indicator-head {
+      background-color: #f3f3f3;
+      height: 4px;
+      overflow: hidden;
+      position: relative;
+      }
+      .ipl-progress-indicator .first-indicator, .ipl-progress-indicator .second-indicator {
+      background-color: #f3f3f3;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      position: absolute;
+      -webkit-transform-origin: left center;
+      -moz-transform-origin: left center;
+      transform-origin: left center;
+      -webkit-transform: scaleX(0);
+      -moz-transform: scaleX(0);
+      transform: scaleX(0);
+      }
+      .ipl-progress-indicator .first-indicator {
+      -webkit-animation: first-indicator 2000ms linear infinite;
+      -moz-animation: first-indicator 2000ms linear infinite;
+      animation: first-indicator 2000ms linear infinite;
+      }
+      .ipl-progress-indicator .second-indicator {
+      -webkit-animation: second-indicator 2000ms linear infinite;
+      -moz-animation: second-indicator 2000ms linear infinite;
+      animation: second-indicator 2000ms linear infinite;
+      }
+      .ipl-progress-indicator .insp-logo {
+      animation: App-logo-spin infinite 20s linear;
+      border-radius: 50%;
+      -webkit-align-self: center;
+      -moz-align-self: center;
+      align-self: center;
+      }
+      @keyframes App-logo-spin {
+      from {
+      transform: rotate(0deg);
+      }
+      to {
+      transform: rotate(360deg);
+      }
+      }
+      @-webkit-keyframes fadein {
+      from {
+      opacity: 0;
+      }
+      to {
+      opacity: 1;
+      }
+      ;
+      }
+      @-moz-keyframes fadein {
+      from {
+      opacity: 0;
+      }
+      to {
+      opacity: 1;
+      }
+      ;
+      }
+      @keyframes fadein {
+      from {
+      opacity: 0;
+      }
+      to {
+      opacity: 1;
+      }
+      ;
+      }
+      @keyframes first-indicator {
+      0% {
+      transform: translate(0%) scaleX(0);
+      }
+      25% {
+      transform: translate(0%) scaleX(0.5);
+      }
+      50% {
+      transform: translate(25%) scaleX(0.75);
+      }
+      75% {
+      transform: translate(100%) scaleX(0);
+      }
+      100% {
+      transform: translate(100%) scaleX(0);
+      }
+      ;
+      }
+      @keyframes second-indicator {
+      0% {
+      transform: translate(0%) scaleX(0);
+      }
+      60% {
+      transform: translate(0%) scaleX(0);
+      }
+      80% {
+      transform: translate(0%) scaleX(0.6);
+      }
+      100% {
+      transform: translate(100%) scaleX(0.1);
+      }
+      ;
+      }
+    </style>
+
+<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" /> -->
+  </head>
+
+  <!-- BODY options, add following classes to body to change options
+
+  // Header options
+  1. '.header-fixed'					- Fixed Header
+
+  // Brand options
+  1. '.brand-minimized'       - Minimized brand (Only symbol)
+
+  // Sidebar options
+  1. '.sidebar-fixed'					- Fixed Sidebar
+  2. '.sidebar-hidden'				- Hidden Sidebar
+  3. '.sidebar-off-canvas'		- Off Canvas Sidebar
+  4. '.sidebar-minimized'			- Minimized Sidebar (Only icons)
+  5. '.sidebar-compact'			  - Compact Sidebar
+
+  // Aside options
+  1. '.aside-menu-fixed'			- Fixed Aside Menu
+  2. '.aside-menu-hidden'			- Hidden Aside Menu
+  3. '.aside-menu-off-canvas'	- Off Canvas Aside Menu
+
+  // Breadcrumb options
+  1. '.breadcrumb-fixed'			- Fixed Breadcrumb
+
+  // Footer options
+  1. '.footer-fixed'					- Fixed footer
+
+  -->
+
+  <body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden "  >
+      <!-- <script async src=" https://www.googletagmanager.com/gtag/js?id=UA-41912238-3"></script> 
+      <script> 
+      window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} 
+      gtag('js', new Date()); 
+      gtag('config', 'UA-41912238-3'); 
+      gtag('event', 'dbhomepage');                                               
+      </script>
+      <script>window.module = 'aot';</script>
+      <script>
+        (function (){
+        var rep = /.*\?.*/,
+            links = document.getElementsByTagName('link'),
+            scripts = document.getElementsByTagName('script'),
+            process_scripts = false;
+         for (var i=0;i<links.length;i++){
+          var link = links[i],
+              href = link.href;
+          if(rep.test(href)){
+            link.href = href+'&'+Date.now();
+          }
+          else{
+            link.href = href+'?'+Date.now();
+          }
+      
+        }
+       
+        for (var i=0;i<scripts.length;i++){
+            var script = scripts[i],
+                src = script.src;
+            if(rep.test(src)){
+              script.src = src+'&'+Date.now();
+            }
+            else{
+              script.src = src+'?'+Date.now();
+            }
+      
+          }
+       
+      })();
+      </script> -->
+
+     <div class="ipl-progress-indicator spinner" id="ipl-progress-indicator">
+      
+      <div class="insp-logo-frame ">
+         
+          <div class="loader"></div>
+       </div>
+    </div> 
+     
+    <div id="root">
+       
+    </div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start`.
+      To create a production bundle, use `npm run build`.
+    -->
+  </body>
+</html>
