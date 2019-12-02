@@ -34,11 +34,7 @@ class Home extends Component {
   authenticate() {
     return new Promise(resolve => setTimeout(resolve, 2000));
   }
-
-  componentDidMount() {
-    this.applicationLevelSpinner();
-  }
-
+  
   toggle = ()=> {
     this.setState({
       dropdownOpen: !this.state.dropdownOpen

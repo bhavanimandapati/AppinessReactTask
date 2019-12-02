@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
-import {Badge, Nav, NavItem, NavLink as RsNavLink} from 'reactstrap';
+import {Badge, Nav, NavItem} from 'reactstrap';
 import classNames from 'classnames';
 import adminnav from './_adminnav';
 
@@ -13,11 +13,9 @@ class Sidebar extends Component {
  
 
   activeRoute(routeName, props) {
-    // return this.props.location.pathname.indexOf(routeName) > -1 ? 'nav-item nav-dropdown open' : 'nav-item nav-dropdown';
     return props.location.pathname.indexOf(routeName) > -1 ? 'nav-item nav-dropdown open' : 'nav-item nav-dropdown';
 
   }
-
    
  callUrl=(url)=>{
   this.props.dispatch({type:'STORE_USERSEARCH_DATA',payload:null}); 
@@ -29,24 +27,12 @@ class Sidebar extends Component {
       }
      }
   }
-
-  // todo Sidebar nav secondLevel
-  // secondLevelActive(routeName) {
-  //   return this.props.location.pathname.indexOf(routeName) > -1 ? "nav nav-second-level collapse in" : "nav nav-second-level collapse";
-  // }
+ 
   render() {
 
     const props = this.props;
     const activeRoute = this.activeRoute;
     const handleClick = this.handleClick;
-
-    // badge addon to NavItem
-    const badge = (badge) => {
-      if (badge) {
-        const classes = classNames( badge.class );
-        return (<Badge className={ classes } color={ badge.variant }>{ badge.text }</Badge>)
-      }
-    };
 
     // simple wrapper for nav-title item
     const wrapper = item => { return (item.wrapper && item.wrapper.element ? (React.createElement(item.wrapper.element, item.wrapper.attributes, item.name)): item.name ) };
@@ -113,7 +99,6 @@ class Sidebar extends Component {
         <nav className="sidebar-nav">
           <Nav className="side-nav-effect">
             {navList()}
-  
           </Nav>
         </nav>
       </div>

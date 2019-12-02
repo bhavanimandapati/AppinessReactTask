@@ -9,7 +9,6 @@ export   function getData(serviceName){
 	return  null;
 }
  
-
 export function isAuthenticated(){
       let  auth_details  = getData("userDetails");
       if(auth_details)

@@ -1,15 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import AgGrid from '../Pages/Common/AgGrid';
-import * as _ from 'lodash';
-import {Form } from "reactstrap";
  
-const styles = {
-  customWidth: {
-    width: 90,
-  },
-};
-var BS = require('react-bootstrap');
 @connect((store) => {
   return {
     userDetails:store.userDetailsReducer.userDetails
@@ -41,16 +33,9 @@ _columns = () => {
    
   
   render() {
-
     return (
       <div className="animated fadeIn">
-
-        <Form >
-
-        <AgGrid gridData={this.state}/>
-
-          
-        </Form>
+           <AgGrid gridData={this.state}/>
       </div>
     )
   }
